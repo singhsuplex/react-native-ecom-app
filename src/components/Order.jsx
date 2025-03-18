@@ -27,11 +27,11 @@ const ProductItem = ({ product, orderId, onTrackProduct, onCancelProduct }) => (
       </TouchableOpacity>
       {/* Track Button */}
       <TouchableOpacity
-        className="flex-row items-center bg-[#2f415d] px-3 py-1 rounded-md"
+        className="flex-row items-center border bg-[#fff] px-3 py-1 rounded-md"
         onPress={() => onTrackProduct(product.id, orderId)}
       >
-        <Icon name="local-shipping" size={24} color="white" />
-        <Text className="text-white text-sm ml-2">Track Order</Text>
+        <Icon name="local-shipping" size={24} color="black" />
+        <Text className="text-black text-sm ml-2">Track Order</Text>
       </TouchableOpacity>
     </View>
   </View>
@@ -106,7 +106,7 @@ const Order = () => {
 
   return (
     <View className="flex-1 bg-gray-100 p-4">
-      <Text className="text-2xl font-bold text-center mb-4 text-[#2f415d]">My Orders</Text>
+      <Text className="text-2xl font-bold text-center mb-4 text-[#fff]">My Orders</Text>
       <ScrollView>
         {orders.length > 0 ? (
           orders.map((order) =>

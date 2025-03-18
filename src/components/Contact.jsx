@@ -11,10 +11,10 @@ const Contact = () => {
         animation="fadeInDown"
         duration={600}
         delay={200}
-        className="bg-[#ffde59] p-8"
+        className="bg-[#fb752e] p-8 py-16"
       >
-        <Text className="text-gray-800 text-2xl font-bold text-center">Contact Us</Text>
-        <Text className="text-gray-800 text-center mt-2">
+        <Text className="text-white text-2xl font-bold text-center">Contact Us</Text>
+        <Text className="text-white text-center mt-2">
           Have questions? We'd love to hear from you.
         </Text>
       </Animatable.View>

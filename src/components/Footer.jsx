@@ -21,6 +21,19 @@ const Footer = () => {
         </TouchableOpacity>
       </Animatable.View>
 
+
+      {/* Products Component with Animation */}
+
+      <Animatable.View 
+        animation="fadeInUp" // Animation type
+        duration={500} // Animation duration
+      >
+        <TouchableOpacity className="flex items-center justify-center" onPress={() => navigation.navigate('AllProducts', { screen: 'AllProducts' })} >
+          <FontAwesome5 name="box-open" size={20} color="black" />
+          <Text className="text-lg mt-1">Products</Text>
+        </TouchableOpacity>
+      </Animatable.View>
+
       {/* Cart Component with Animation */}
       <Animatable.View 
         animation="fadeInUp" // Animation type

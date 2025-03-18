@@ -29,7 +29,7 @@ const FeatureProduct = ({ navigation }) => {
        
         return (
             
-            <View className="m-4 overflow-hidden p-4 bg-yellow-100 border border-blue-200 rounded-lg mt-8">
+            <View className="m-4 overflow-hidden p-4 bg-[#fb752e] border border-blue-200 rounded-lg mt-8">
                 {/* <View className=" pb-6 flex-row items-center justify-between ">
                     <Text className="text-[#2f415d] font-bold">New Arrivals</Text>
                     <Text className="font-bold">See All</Text>
@@ -66,10 +66,10 @@ const FeatureProduct = ({ navigation }) => {
     }
 
     return (
-        <View className="m-4 overflow-hidden  p-4 bg-yellow-100 border border-blue-200 rounded-lg mt-8">
+        <View className="m-4 overflow-hidden  p-4 bg-[#fb752e] border border-blue-200 rounded-lg mt-8">
             <View className=" pb-6 flex-row items-center justify-between ">
-                <Text className="text-[#2f415d] font-bold">New Arrivals</Text>
-                <Text className="font-bold">See All</Text>
+                <Text className="text-[#fff] font-bold">New Arrivals</Text>
+                {/* <Text className="font-bold text-white">See All</Text> */}
             </View>
 
             <ScrollView

@@ -24,6 +24,8 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import AgentLogin from './src/components/AgentLogin';
 import AgentDashboard from './src/components/AgentDashboard';
+import ChangeDetails from './src/components/ChangeDetails';
+import AllProducts from './src/components/AllProducts';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -64,19 +66,19 @@ const HomeStack = ({ onRouteChange }) => (
       options={{
         title: 'User Login',
         headerStyle: {
-          backgroundColor: '#ffde59',
+          backgroundColor: '#fff',
         },
-        headerRight: () => {
-          const navigation = useNavigation();
-         return (
-            <TouchableOpacity 
-              style={{ marginRight: 0 }} 
-              onPress={() => navigation.navigate('HomeStack', { screen: 'AgentLogin' })}
-            >
-              <Text className='border border-[#461a01] text-[#461a01] font-bold rounded-full px-4 py-2'>Agent Login</Text>
-            </TouchableOpacity>
-          );
-        }
+        // headerRight: () => {
+        //   const navigation = useNavigation();
+        //  return (
+        //     <TouchableOpacity 
+        //       style={{ marginRight: 0 }} 
+        //       onPress={() => navigation.navigate('HomeStack', { screen: 'AgentLogin' })}
+        //     >
+        //       <Text className='border border-[#461a01] text-[#461a01] font-bold rounded-full px-4 py-2'>Agent Login</Text>
+        //     </TouchableOpacity>
+        //   );
+        // }
       }}
     />
     <Stack.Screen
@@ -114,9 +116,9 @@ const HomeStack = ({ onRouteChange }) => (
       component={VerifyOtp}
       options={{
         title: 'Verify OTP',
-        headerStyle: {
-          backgroundColor: '#ffde59',
-        },
+        // headerStyle: {
+        //   backgroundColor: '#ffde59',
+        // },
       }}
     />
     <Stack.Screen
@@ -135,6 +137,19 @@ const HomeStack = ({ onRouteChange }) => (
       component={Payment}
       options={{ title: 'Payment' }}
     />
+
+    <Stack.Screen
+      name="ChangeDetails"
+      component={ChangeDetails}
+      options={{ title: 'Change Details' }}
+    />
+
+    <Stack.Screen
+      name="AllProducts"
+      component={AllProducts}
+      options={{ title: 'All Products' }}
+    />
+
   </Stack.Navigator>
 );
 

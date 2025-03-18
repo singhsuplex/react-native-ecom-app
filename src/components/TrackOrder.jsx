@@ -57,7 +57,7 @@ const TrackOrder = ({ navigation, route }) => {
   return (
     <View className="flex-1 bg-gray-50">
       {/* Header Section */}
-      <View className="bg-[#2f415d] p-6 rounded-b-3xl">
+      <View className="bg-[#fb752e] p-6 rounded-b-3xl">
         <View className="flex-row items-center mb-4">
           <TouchableOpacity onPress={handleGoBack}>
             <Icon name="arrow-back" size={24} color="white" />
@@ -71,11 +71,11 @@ const TrackOrder = ({ navigation, route }) => {
           <View className="flex-row justify-between items-center">
             <View>
               <Text className="text-gray-500">Status</Text>
-              <Text className="text-lg font-bold text-[#2f415d]">{orderDetails.status}</Text>
+              <Text className="text-lg font-bold text-[#fb752e]">{orderDetails.status}</Text>
             </View>
             <View>
               <Text className="text-gray-500">Expected Delivery</Text>
-              <Text className="text-lg font-bold text-[#2f415d]">{orderDetails.estimatedDelivery}</Text>
+              <Text className="text-lg font-bold text-[#fb752e]">{orderDetails.estimatedDelivery}</Text>
             </View>
           </View>
         </View>
@@ -85,8 +85,8 @@ const TrackOrder = ({ navigation, route }) => {
       <View className="bg-white mx-4 mt-4 p-4 rounded-xl shadow-sm">
         <Text className="text-gray-500">Current Location</Text>
         <View className="flex-row items-center mt-2">
-          <Icon name="location-on" size={24} color="#2f415d" />
-          <Text className="text-[#2f415d] font-semibold ml-2">{orderDetails.currentLocation}</Text>
+          <Icon name="location-on" size={24} color="#fb752e" />
+          <Text className="text-[#fb752e] font-semibold ml-2">{orderDetails.currentLocation}</Text>
         </View>
       </View>
 
@@ -96,16 +96,16 @@ const TrackOrder = ({ navigation, route }) => {
           <View key={step.id} className="flex-row">
             {/* Timeline Line */}
             <View className="items-center">
-              <View className={`w-4 h-4 rounded-full ${step.completed ? 'bg-[#2f415d]' : 'bg-gray-300'}`} />
+              <View className={`w-4 h-4 rounded-full ${step.completed ? 'bg-[#fb752e]' : 'bg-gray-300'}`} />
               {index !== orderDetails.trackingSteps.length - 1 && (
-                <View className={`w-0.5 h-24 ${step.completed ? 'bg-[#2f415d]' : 'bg-gray-300'}`} />
+                <View className={`w-0.5 h-24 ${step.completed ? 'bg-[#fb752e]' : 'bg-gray-300'}`} />
               )}
             </View>
             
             {/* Content */}
             <View className="flex-1 ml-4 mb-6">
               <View className="bg-white p-4 rounded-xl shadow-sm">
-                <Text className="text-lg font-bold text-[#2f415d]">{step.title}</Text>
+                <Text className="text-lg font-bold text-[#fb752e]">{step.title}</Text>
                 <Text className="text-gray-500 mt-1">{step.description}</Text>
                 <Text className="text-gray-400 text-sm mt-2">{step.time}</Text>
               </View>
@@ -115,7 +115,7 @@ const TrackOrder = ({ navigation, route }) => {
       </ScrollView>
 
       {/* Help Button */}
-      <TouchableOpacity className="bg-[#2f415d] mx-4 mb-6 p-4 rounded-xl" onPress={() => navigation.navigate('Contact')}>
+      <TouchableOpacity className="bg-[#fb752e] mx-4 mb-6 p-4 rounded-xl" onPress={() => navigation.navigate('Contact')}>
         <Text className="text-white text-center font-bold">Need Help?</Text>
       </TouchableOpacity>
     </View>

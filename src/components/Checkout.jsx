@@ -21,6 +21,8 @@ const Checkout = ({ navigation }) => {
         return;
       }
 
+      console.log(user._id)
+
       try {
         const response = await axios.get(
           `https://maa-tulya-ecom-mern-backend-app.onrender.com/api/v1/cart/${user._id}`
@@ -140,7 +142,8 @@ const Checkout = ({ navigation }) => {
         <Text className="mb-2 text-gray-700">
           13th Street. 47 W 13th St, New York, NY 10011, USA.
         </Text>
-        <Text className="text-gray-700">+019645566547</Text>
+        <Text className="text-gray-700">+01-9645566547</Text>
+        <Text className="text-blue-500" onPress={() => navigation.navigate('ChangeDetails')} >Change Address</Text>
       </Animatable.View>
 
       {/* Product Details */}
@@ -209,7 +212,7 @@ const Checkout = ({ navigation }) => {
         <TouchableOpacity>
           <Button 
             title={isPlacingOrder ? "Placing Order..." : "Place Your Order"}
-            color={'#FFB200'}
+            color={'#fb752e'}
             onPress={handlePlaceOrder}
             disabled={isPlacingOrder || !cartData?.products?.length}
           />

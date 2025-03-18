@@ -13,7 +13,7 @@ const Header = () => {
   const user = useSelector((state) => state.login.user)
   const navigation = useNavigation();
   const [showProfile, setShowProfile] = useState(false);
-  const userName = user.name || 'Unknown';  
+  const userName = user.name || 'Guest';  
 
   const toggleProfile = () => {
     setShowProfile(!showProfile);
@@ -52,6 +52,11 @@ const Header = () => {
             />
           </Animatable.View> */}
 
+          <Animatable.View className="flex-row gap-2 items-center" animation="zoomIn" duration={1000}>
+            <Icon name="phone" size={22} color="#000" />
+            <Text className='text-xl font-extrabold'> 1800 2122 098</Text>
+          </Animatable.View>
+ 
           <TouchableOpacity onPress={toggleProfile}>
             <Animatable.View animation="zoomIn" duration={1000}>
               <Image

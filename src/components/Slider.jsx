@@ -3,6 +3,7 @@ import { View, Image, StyleSheet, Dimensions } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import ShimmerPlaceholder from 'react-native-shimmer-placeholder';
 import LinearGradient from 'react-native-linear-gradient';
+import axios from 'axios';
 
 const { width: screenWidth } = Dimensions.get("window");
 
@@ -11,38 +12,58 @@ const Slider = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate a delay to fetch images (Replace this with actual API call)
-    const fetchCarouselItems = () => {
-      const items = [
-        {
-          title: "Slide 1",
-          image: "https://img.freepik.com/premium-photo/turmeric-powder-bowl-with-roots-indian-spice-banner_776894-186178.jpg",
-        },
-        {
-          title: "Slide 2",
-          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjM0EiOlRNTCIomVZign46FOZw0zvshUx79A&s",
-        },
-        {
-          title: "Slide 3",
-          image: "https://www.shutterstock.com/image-photo/mct-coconut-butter-oil-organic-600nw-1643820763.jpg",
-        },
-        {
-          title: "Slide 4",
-          image: "https://t3.ftcdn.net/jpg/01/71/97/94/360_F_171979497_W6Ke2ZCBjOPNPkOuGsgktqSLhzYsQDSn.jpg",
-        },
-      ];
-      setTimeout(() => {
-        setCarouselItems(items);
+    // Fetch banner data from API
+    const fetchBannerData = async () => {
+      try {
+        const response = await axios.get('https://maa-tulya-ecom-mern-backend-app.onrender.com/api/v1/banner');
+        
+        if (response.data && Array.isArray(response.data.data)) {
+          // Process the API response based on the actual structure
+          const bannerItems = response.data.data.map((item, index) => {
+            // Check if images array exists and has items
+            const imagePath = item.images && item.images.length > 0 ? item.images[0] : "";
+            
+            // Create the full image URL by adding the base URL if needed
+            // If the image path already contains http or https, use it as is
+            const imageUrl = imagePath.startsWith('http') 
+              ? imagePath 
+              : `https://maa-tulya-ecom-mern-backend-app.onrender.com/${imagePath}`;
+            
+            return {
+              title: `Slide ${index + 1}`,
+              image: imageUrl,
+              id: item._id
+            };
+          });
+          
+          setCarouselItems(bannerItems);
+        } else {
+          console.error('Invalid banner data format:', response.data);
+          setCarouselItems([]);
+        }
+        
         setLoading(false);
-      }, 2000); // Simulated delay
+      } catch (error) {
+        console.error('Error fetching banners:', error);
+        setLoading(false);
+        setCarouselItems([]);
+      }
     };
 
-    fetchCarouselItems();
+    fetchBannerData();
   }, []);
 
   const renderCarouselItem = ({ item }) => (
     <View style={styles.carouselItem}>
-      <Image source={{ uri: item.image }} style={styles.carouselImage} />
+      {item && item.image ? (
+        <Image 
+          source={{ uri: item.image }} 
+          style={styles.carouselImage}
+          onError={(e) => console.error('Error loading image:', e.nativeEvent.error, 'URL:', item.image)}
+        />
+      ) : (
+        <View style={[styles.carouselImage, styles.fallbackImage]} />
+      )}
     </View>
   );
 
@@ -59,12 +80,12 @@ const Slider = () => {
   return (
     <View style={styles.carouselContainer}>
       <Carousel
-        data={loading ? Array.from({ length: 4 }) : carouselItems} // Render skeletons while loading
+        data={loading ? Array.from({ length: 4 }) : carouselItems}
         renderItem={loading ? renderSkeleton : renderCarouselItem}
         sliderWidth={screenWidth}
         itemWidth={screenWidth - 60}
         loop={true}
-        autoplay={!loading}
+        autoplay={!loading && carouselItems.length > 1}
         autoplayDelay={3000}
         autoplayInterval={5000}
       />
@@ -87,6 +108,9 @@ const styles = StyleSheet.create({
     height: 200,
     resizeMode: "cover",
   },
+  fallbackImage: {
+    backgroundColor: '#E0E0E0',
+  }
 });
 
 export default Slider;

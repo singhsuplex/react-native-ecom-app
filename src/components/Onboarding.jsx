@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Onboarding = ({ navigation }) => {
   return (
-    <View className="flex-1 bg-[#ffde59] items-center justify-center">
+    <View className="flex-1 bg-[#fff] items-center justify-center">
 
       <Animatable.Image
         animation={{
@@ -16,7 +16,7 @@ const Onboarding = ({ navigation }) => {
         }}
         duration={5000}
         source={require('../../assets/logo.png')}
-        className="w-72 h-48 mb-8 rounded-lg"
+        className="w-72 h-60 mb-8 rounded-lg"
       />
 
 

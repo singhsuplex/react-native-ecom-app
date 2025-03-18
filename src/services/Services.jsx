@@ -13,3 +13,17 @@ export const fetchProducts = async () => {
   }
 };
 
+
+// =========== For Banner ====================
+
+// const BannerURL = 'https://maa-tulya-ecom-mern-backend-app.onrender.com/api/v1/banner';
+
+// export const fetchBanner = async () => {
+//   try {
+//     const response = await axios.get(BannerURL);
+//     return response.data;
+//   } catch (error) {
+//     console.error('Error fetching Banner:', error);
+//     throw error;
+//   }
+// };

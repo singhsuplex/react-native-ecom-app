@@ -16,14 +16,14 @@ const Profile = () => {
         animation="fadeInDown"
         duration={500}
         delay={100}
-        className="bg-[#ffde59] p-6 items-center"
+        className="bg-[#fb752e] p-6 items-center"
       >
         <Image
           source={Avatar}
           className="w-32 h-32 rounded-full mb-4"
         />
-        <Text className="text-gray-800 text-2xl font-bold">{user.name}</Text>
-        <Text className="text-gray-800 text-lg">{user.email}</Text>
+        <Text className="text-white text-2xl font-bold">{user.name}</Text>
+        <Text className="text-white text-lg">{user.email}</Text>
       </Animatable.View>
 
       {/* Profile Info with animation */}

@@ -110,7 +110,7 @@ const VerifyOtp = ({ navigation, route }) => {
     };
 
     return (
-        <SafeAreaView className="flex-1 bg-[#ffde59]">
+        <SafeAreaView className="flex-1 bg-[#fff]">
             <View className="flex-1 px-6 pt-32">
                 {/* Header */}
                 <Animatable.View animation="fadeInDown" duration={1500} className="items-center mb-12">
@@ -136,7 +136,7 @@ const VerifyOtp = ({ navigation, route }) => {
                                 onChangeText={(value) => handleOtpChange(value, index)}
                                 onKeyPress={(event) => handleKeyPress(event, index)}
                                 editable={!loading}
-                                secureTextEntry={true}  // Added for security
+                                secureTextEntry={false}  // Added for security
                             />
                         ))}
                     </View>

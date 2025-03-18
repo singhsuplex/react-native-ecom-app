@@ -2,13 +2,15 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 // import { DrawerContentScrollView } from '@react-navigation/drawer';
+const ProfilePic = require('../../assets/sidebar-bg.jpg');
+const Avatar = require('../../assets/avatar.png')
 
 const DrawerItem = ({ icon, label, onPress, isActive }) => (
   <TouchableOpacity 
-    className={`flex-row items-center p-4 mx-2 rounded-lg ${isActive ? 'bg-[#2f415d]' : ''}`}
+    className={`flex-row items-center p-4 mx-2 rounded-lg ${isActive ? 'bg-[#fb752e]' : ''}`}
     onPress={onPress}
   >
-    <Icon name={icon} size={24} color={isActive ? '#fff' : '#2f415d'} />
+    <Icon name={icon} size={24} color={isActive ? '#fff' : '#fb752e'} />
     <Text className={`ml-4 text-lg ${isActive ? 'text-white' : 'text-gray-800'}`}>{label}</Text>
   </TouchableOpacity>
 );
@@ -27,15 +29,15 @@ const Sidebar = (props) => {
       {/* Profile Section */}
       <View style={{ height: 200 }}>
         <ImageBackground
-          source={{ uri: 'https://t3.ftcdn.net/jpg/03/16/91/28/360_F_316912806_RCeHVmUx5LuBMi7MKYTY5arkE4I0DcpU.jpg' }}  
+          source={ProfilePic}  
           style={{ flex: 1, padding: 24 }} 
         >
           <Image
-            source={{ uri: 'https://i.pravatar.cc/100' }}
+            source={Avatar}
             style={{ width: 80, height: 80, borderRadius: 40, marginBottom: 16 }}
           />
-          <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }}>John Doe</Text>
-          <Text style={{ color: 'white', fontSize: 14 }}>{currentDate}</Text>
+          <Text style={{ color: 'black', fontSize: 18, fontWeight: 'bold' }}>John Doe</Text>
+          <Text style={{ color: 'black', fontSize: 14 }}>{currentDate}</Text>
         </ImageBackground>
       </View>
 
